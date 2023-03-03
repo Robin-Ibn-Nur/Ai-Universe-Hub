@@ -1,4 +1,3 @@
-
 .wrap {
     height: 100%;
     display: flex;
@@ -87,146 +86,195 @@ button:focus::after {
     }
 }
 
-/* ---------------- 
-        card
----------------------*/
 
-:root {
-    --clr-netural-900: rgb(44, 49, 53);
-    --clr-netural-100: white;
-    --clr-accent-400: #43CDC4;
-}
-
-/* *,
-*::befor *::after {
-    box-sizing: border-box;
-} */
-
-/* body {
-    display: grid;
-    min-height: 100vh;
-    place-items: center;
-    line-height: 1.6;
-    background: var(--clr-netural-900);
-    font-family: Arial, san-serif;
-} */
-
-.card {
-    color: var(--clr-netural-100);
-    background-image: url(https://www.asio.gov.au/sites/default/files/Man%20working%20on%20PC.jpg);
-    background-size: cover;
-    padding: 11rem 0 0;
-    max-width: 35ch;
-    border-radius: 0.7rem;
-    overflow: hidden;
-    border-style: solid;
-    border-width: 2px;
-
-    transition: transform 500ms ease;
-}
-
-.card:hover,
-.card:focus-within {
-    transform: scale(1.13);
-}
-
-.card-content {
-    --padding: 1.5rem;
-    padding: var(--padding);
-    background: linear-gradient(hsl(0 0% 0% / 0),
-            hsl(20 0% 0% / 0.3) 20%,
-            hsl(0 0% 0% / 1));
-}
-
-.card-title {
+#wrapper {
     position: relative;
-    width: max-content;
-    /* need this for help to 
-    lineup (o)utline: (px? solid? red?) (delete after) */
+    /*background:#333;*/
+    height: 100%;
 }
 
-.card-title::after {
-    content: "";
+.profile-main-loader {
+    left: 50% !important;
+    margin-left: -100px;
+    position: fixed !important;
+    top: 50% !important;
+    margin-top: -100px;
+    width: 45px;
+    z-index: 9000 !important;
+}
+
+.profile-main-loader .loader {
+    position: relative;
+    margin: 0px auto;
+    width: 200px;
+    height: 200px;
+}
+
+.profile-main-loader .loader:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+}
+
+.circular-loader {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    height: 100%;
+    -webkit-transform-origin: center center;
+    -ms-transform-origin: center center;
+    transform-origin: center center;
+    width: 100%;
     position: absolute;
-    background: var(--clr-accent-400);
-    height: 4px;
-    width: calc(100% + var(--padding));
-    left: calc(var(--padding) * -1);
-    bottom: -1px;
-
-    transform-origin: left;
-    transition: transform 500ms ease;
+    top: 0;
+    left: 0;
+    margin: auto;
 }
 
-.card:hover .card-title::after,
-.card:focus-within .card-title::after {
-    transform: scaleX(1);
+.loader-path {
+    stroke-dasharray: 150, 200;
+    stroke-dashoffset: -10;
+    -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+    stroke-linecap: round;
 }
 
-.card-body {
-    color: rgb(255 255 255 / 0.9)
-}
-
-.btn {
-    cursor: pointer;
-    display: inline-block;
-    text-decoration: none;
-    color: var(--clr-netural-900);
-    background-color: var(--clr-accent-400);
-    padding: 0.5em 1.25em;
-    border-radius: 0.25rem ;border: 10px;
-}
-
-.btn:hover,
-.btn:focus {
-    background-color: var(--clr-netural-100)
-}
-
-@media (hover) {
-
-    .card-content {
-        transform: translateY(65%);
-        transition: transform 500ms ease;
-    }
-
-    .card:hover .card-content,
-    .card:focus-within .card-content {
-        transform: translateY(0%);
-        transition-delay: 500ms;
-    }
-
-    .card:focus-within .card-content {
-        transition-duration: 0ms;
-    }
-
-    .card-content>*:not(.card-title) {
-        opacity: 0;
-        transition: opacity 500ms linear;
-    }
-
-    .card:hover .card-content>*:not(.card-title),
-    .card:focus-within .card-content>*:not(.card-title) {
-        opacity: 1;
-        transition-delay: 1000ms;
-    }
-
-    .card-title::after {
-        transform: scaleX(0);
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
 
-    *,
-    *::before *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-        transition-delay: 0ms !important;
+@-webkit-keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124;
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35;
+    }
+
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124;
+    }
+}
+
+@-webkit-keyframes color {
+    0% {
+        stroke: #70c542;
+    }
+
+    40% {
+        stroke: #70c542;
+    }
+
+    66% {
+        stroke: #70c542;
+    }
+
+    80%,
+    90% {
+        stroke: #70c542;
+    }
+}
+
+@keyframes color {
+    0% {
+        stroke: #70c542;
+    }
+
+    40% {
+        stroke: #70c542;
+    }
+
+    66% {
+        stroke: #70c542;
+    }
+
+    80%,
+    90% {
+        stroke: #70c542;
     }
 }
 
 
+/* inner js button */
+.cssbuttons-io-button {
+    background: #A370F0;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+}
 
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+}
 
+.cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+}
+
+.cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+}
+
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
