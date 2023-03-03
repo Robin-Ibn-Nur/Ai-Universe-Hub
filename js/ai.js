@@ -27,7 +27,8 @@ const displayCards = data => {
                     </p>
                 </div>
                 <div class="justify-end">
-                <i onClick='details(${id})' class="fa-sharp fa-solid fa-arrow-right cursor-pointer rounded px-5 py-2 bg-red-500"></i>
+                
+                <label for="my-modal-6"> <i onClick="fetchDetails('${id}')" class="fa-sharp fa-solid fa-arrow-right cursor-pointer rounded px-5 py-2 bg-red-500" ></i></label>
                 </div>
                  </div>
             </div>
@@ -39,10 +40,18 @@ const displayCards = data => {
 }
 
 // display card details with modal
-const details = async(id) => {
-    // console.log(id);
+const fetchDetails = async (id) => {
     const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`
     const res = await fetch(url);
     const data = await res.json();
-    console.log(url,res,data);
+    modal(data.data);
 }
+
+//show details in a modal
+const modal = modal => {
+    console.log(modal);
+    const { tool_name, description, features, integrations, image_link, input_output_examples }
+        = modal;
+
+}
+
