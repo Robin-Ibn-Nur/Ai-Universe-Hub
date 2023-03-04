@@ -40,29 +40,28 @@
             </div> -->
         </div>
     </main>
-    <section class="relative">
+    <section class="relative ">
         <input type="checkbox" id="my-modal-6" class="modal-toggle" />
         <div class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-                <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
-                <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for
-                    free!</p>
-                <div class="modal-action absolute -top-6 -right-0">
-                    <label for="my-modal-6" class="btn btn-circle btn-outline hover:bg-red-500"><svg xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg></label>
-                </div>
+            <div id="modalDetails" class="modal-box m-32">
+              
+
             </div>
         </div>
     </section>
 
+    <!-- see more button -->
+
+    <div id="seeMore" class="text-center hidden mb-5">
+        <a id="moreCards" href="#" class="btn ">See More ...</a>
+    </div>
+
+
     <!-- loader -->
 
-    <div id="wrapper">
+    <div id="wrapper" class="hidden">
 
-        <div class="profile-main-loader hidden">
+        <div class="profile-main-loader">
             <div class="loader">
                 <svg class="circular-loader" viewBox="25 25 50 50">
                     <circle class="loader-path" cx="50" cy="50" r="20" fill="none" stroke="#70c542" stroke-width="2" />
