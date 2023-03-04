@@ -64,12 +64,12 @@ const displayCards = (data, dataLimit) => {
 };
 
 
-// seeMore data onclick
+// seeMore data onclick function
 document.getElementById('moreCards').addEventListener('click', function () {
-  // displayCards(fetchAllData);
   loadData(true)
 })
 
+//shortByDate function
 const shortByDate = () => {
   fetchAllData.sort(
     (a, b) => new Date(b.published_in) - new Date(a.published_in)
@@ -85,7 +85,6 @@ const fetchDetails = async (id) => {
   modal(data.data);
 };
 const modal = (modalData) => {
-  console.log(modalData);
   const {
     pricing,
     description,
@@ -98,7 +97,7 @@ const modal = (modalData) => {
   const modalDiv = (document.getElementById('modalDetails').innerHTML = `
     <div class="main grid sm:grid-cols-1 md:grid-cols-2 justify-between mt-7">
       <div class="outline outline-offset-2 outline-red-400 rounded bg-red-100">
-        <p>${description}</p>
+        <p class="text-2xl">${description}</p>
         <div class="flex justify-around my-8 mx-auto">
           <div class="border rounded bg-gray-50">
             <p>${pricing?.[0].price}</p> </br>
@@ -116,9 +115,9 @@ const modal = (modalData) => {
         <div class="flex justify-around">
           <div>
             <h3 class="text-xl">Features</h3>
-            <li>${features?.[1].feature_name ? features?.[1].feature_name : "No Data Available"}</li>
-            <li>${features?.[2].feature_name ? features?.[2].feature_name : "No Data Available"}</li>
-            <li>${features?.[3].feature_name ? features?.[2].feature_name : "No Data Available"}</li>
+            <li>${features?.[1].feature_name ? features?.[1].feature_name : "No Data"}</li>
+            <li>${features?.[2].feature_name ? features?.[2].feature_name : "No Data"}</li>
+            <li>${features?.[3].feature_name ? features?.[2].feature_name : "No Data"}</li>
 
 
 
@@ -136,8 +135,8 @@ const modal = (modalData) => {
         <img class="h-52 rounded" src=${image_link?.[0]} alt="">
         <p class="text-center text-sm bg-red-500 rounded absolute top-0 right-0">${accuracy
       .score * 100}% accuracy</p>
-        <h3 class="text-lg text-center">${input_output_examples?.[0].input ? input_output_examples[0].input : "No Data Available"}</h3>
-        <p class="text-xs text-center">${input_output_examples?.[0].output ? input_output_examples[0].output : "No Data Available"}</p>
+        <h3 class="text-lg text-center">${input_output_examples?.[0].input ? input_output_examples[0].input : "No Data"}</h3>
+        <p class="text-xs text-center">${input_output_examples?.[0].output ? input_output_examples[0].output : "No Data"}</p>
       </div>
     </div>
     <div class="h-2 w-2 modal-action absolute -top-6 -right-0">
