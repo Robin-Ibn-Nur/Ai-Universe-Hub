@@ -88,7 +88,6 @@ const fetchDetails = async (id) => {
 const modal = (modalData) => {
   console.log(modalData);
   const {
-    tool_name,
     pricing,
     description,
     accuracy,
@@ -97,9 +96,12 @@ const modal = (modalData) => {
     image_link,
     input_output_examples,
   } = modalData;
+  console.log(integrations[0]);
+  console.log(integrations[1]);
+  console.log(integrations[2]);
   const modalDiv = (document.getElementById('modalDetails').innerHTML = `
     <div class="main grid sm:grid-cols-1 md:grid-cols-2 justify-between mt-7">
-      <div class="outline outline-offset-2 outline-red-400 rounded bg-red-100 mr-3">
+      <div class="outline outline-offset-2 outline-red-400 rounded bg-red-100">
         <p>${description}</p>
         <div class="flex justify-around my-8 mx-auto">
           <div class="border rounded bg-gray-50">
@@ -117,21 +119,24 @@ const modal = (modalData) => {
         </div>
         <div class="flex justify-around">
           <div>
-            <h3>Features</h3>
-            <li>${features?.[0] ? features?.[0] : "No Data Available"}</li>
-            <li>${features?.[1] ? features?.[1] : "No Data Available"}</li>
-            <li>${features?.[2] ? features?.[2] : "No Data Available"}</li>
+            <h3 class="text-xl">Features</h3>
+            <li>${features?.[1].feature_name ? features?.[1].feature_name : "No Data Available"}</li>
+            <li>${features?.[2].feature_name ? features?.[2].feature_name : "No Data Available"}</li>
+            <li>${features?.[3].feature_name ? features?.[2].feature_name : "No Data Available"}</li>
 
 
 
           </div>
           <div>
-            <h3>Integrations</h3>
-            ${integrations?.map(integration => `<li>${integration ? integration : "No Data Available"}</li>`).join('')}
+            <h3 class="text-xl">Integrations</h3>
+            <li>${integrations?.[0] ? integrations[0] :"No Data"}</li>
+            <li>${integrations?.[1] ? integrations[1] :"No Data"}</li>
+            <li>${integrations?.[2] ? integrations[2] :"No Data"}</li>
+            
           </div>
         </div>
       </div>
-      <div class="relative border">
+      <div class="relative border text-center ml-32">
         <img class="h-52 rounded" src=${image_link?.[0]} alt="">
         <p class="text-center text-sm bg-red-500 rounded absolute top-0 right-0">${accuracy
       .score * 100}% accuracy</p>
