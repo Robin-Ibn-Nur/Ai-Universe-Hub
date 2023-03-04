@@ -71,7 +71,6 @@ document.getElementById('moreCards').addEventListener('click', function () {
 })
 
 const shortByDate = () => {
-  console.log(fetchAllData);
   fetchAllData.sort(
     (a, b) => new Date(b.published_in) - new Date(a.published_in)
   );
