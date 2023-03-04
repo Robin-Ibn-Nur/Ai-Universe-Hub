@@ -96,9 +96,6 @@ const modal = (modalData) => {
     image_link,
     input_output_examples,
   } = modalData;
-  console.log(integrations[0]);
-  console.log(integrations[1]);
-  console.log(integrations[2]);
   const modalDiv = (document.getElementById('modalDetails').innerHTML = `
     <div class="main grid sm:grid-cols-1 md:grid-cols-2 justify-between mt-7">
       <div class="outline outline-offset-2 outline-red-400 rounded bg-red-100">
