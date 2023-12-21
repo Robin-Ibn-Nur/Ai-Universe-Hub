@@ -1,11 +1,11 @@
-let fetchAllData = [];
+let fetchData = [];
 
 const loadData = async (dataLimit) => {
   loader(true)
   const url = "https://openapi.programming-hero.com/api/ai/tools";
   const res = await fetch(url);
   const data = await res.json();
-  fetchAllData = data.data.tools;
+  fetchData = data.data.tools;
   displayCards(data.data.tools, dataLimit);
 };
 
@@ -71,10 +71,10 @@ document.getElementById('moreCards').addEventListener('click', function () {
 
 //shortByDate function
 const shortByDate = () => {
-  fetchAllData.sort(
+  fetchData.sort(
     (a, b) => new Date(b.published_in) - new Date(a.published_in)
   );
-  displayCards(fetchAllData);
+  displayCards(fetchData);
 };
 
 // display card details with modal
@@ -124,9 +124,9 @@ const modal = (modalData) => {
           </div>
           <div>
             <h3 class="text-xl">Integrations</h3>
-            <li>${integrations?.[0] ? integrations[0] :"No Data"}</li>
-            <li>${integrations?.[1] ? integrations[1] :"No Data"}</li>
-            <li>${integrations?.[2] ? integrations[2] :"No Data"}</li>
+            <li>${integrations?.[0] ? integrations[0] : "No Data"}</li>
+            <li>${integrations?.[1] ? integrations[1] : "No Data"}</li>
+            <li>${integrations?.[2] ? integrations[2] : "No Data"}</li>
             
           </div>
         </div>
